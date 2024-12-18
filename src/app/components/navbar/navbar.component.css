@@ -1,0 +1,13 @@
+.navbar {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ff6b6b;
+    padding: 8px; 
+}
+.button {
+    border: 1px solid black;
+    padding: 4px;
+    background-color: #eee;
+    border-radius: 4px;
+}

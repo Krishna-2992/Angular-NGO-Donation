@@ -1,0 +1,12 @@
+<div class="navbar">
+  <div class="button"><a routerLink="/" routerLinkActive="active">Home</a></div>
+  <div class="button">
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+  </div>
+  <div class="button">
+    <a routerLink="/register" routerLinkActive="active">Register</a>
+  </div>
+  <div>
+    {{ user().loginName }}
+  </div>
+</div>
