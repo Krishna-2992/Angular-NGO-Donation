@@ -25,4 +25,7 @@ export class NavbarComponent {
     }
   }
 
+  logOut() {
+    this.userService.logoutUser()
+  }
 }

@@ -41,6 +41,21 @@ export class UserService {
     })
   }
 
+  logoutUser(): void {
+    localStorage.removeItem('user'); // Removes the user object
+    this.user.set({
+      userId: 0,
+      name: '',
+      phone: '',
+      email: '',
+      address: '',
+      loginName: '',
+      password: '',
+      role: '',
+      panNumber: ''
+    })
+  }
+
   getUserData(loginUser: LoginUser): Observable<User> {
     console.log("loginuser: ", loginUser)
     return this.http.post<User>(`${this.url}/login`, loginUser );

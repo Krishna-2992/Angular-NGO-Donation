@@ -1,12 +1,25 @@
+<!-- User not logged In -->
+@if(user().name === '') {
 <div class="navbar">
-  <div class="button"><a routerLink="/" routerLinkActive="active">Home</a></div>
-  <div class="button">
-    <a routerLink="/login" routerLinkActive="active">Login</a>
-  </div>
-  <div class="button">
-    <a routerLink="/register" routerLinkActive="active">Register</a>
-  </div>
+  <a routerLink="/" routerLinkActive="active" class="button">Home</a>
+
+  <a routerLink="/login" routerLinkActive="active" class="button">Login</a>
+  <a routerLink="/register" routerLinkActive="active" class="button"
+    >Register</a
+  >
+</div>
+}
+
+<!-- User Logged In -->
+@if(user().name !== '') {
+<div class="navbar">
+  <a routerLink="/" routerLinkActive="active" class="button">Home</a>
+  <a routerLink="/donations" routerLinkActive="active" class="button"
+    >Donations</a
+  >
+  <a (click)="logOut()" class="button">Logout</a>
   <div>
-    {{ user().loginName }}
+    {{ user().name }}
   </div>
 </div>
+}
