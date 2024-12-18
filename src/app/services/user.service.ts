@@ -32,7 +32,7 @@ export class UserService {
     this.getUserData(loginUser).subscribe({
       next: (response: User) => {
         console.log(response)
-        // localStorage.setItem("user", JSON.stringify(response));
+        localStorage.setItem("user", JSON.stringify(response));
         this.user.set(response)
       },
       error: (error: Error) => {

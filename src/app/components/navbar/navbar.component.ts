@@ -16,13 +16,13 @@ export class NavbarComponent {
 
   constructor(private userService: UserService){}
 
-  // ngOnInit() {
-  //   console.log("user: ", localStorage.getItem('user'))
-  //   const userData = localStorage.getItem("user");
-  //   if (userData) {
-  //       const parsedUser = JSON.parse(userData);
-  //       this.userService.user.set(parsedUser);
-  //   }
-  // }
+  ngOnInit() {
+    console.log("user: ", localStorage.getItem('user'))
+    const userData = localStorage.getItem("user");
+    if (userData) {
+        const parsedUser = JSON.parse(userData);
+        this.userService.user.set(parsedUser);
+    }
+  }
 
 }
