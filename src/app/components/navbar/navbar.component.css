@@ -1,13 +1,20 @@
 .navbar {
+    display: flex;
+    background-color: #ff6b6b;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+}
+.buttons {
     display: flex; 
     justify-content: space-around;
     align-items: center;
-    background-color: #ff6b6b;
     padding: 8px; 
 }
 .button {
     border: 1px solid black;
     padding: 4px;
+    margin: 4px;
     background-color: #eee;
     border-radius: 4px;
     cursor: pointer;

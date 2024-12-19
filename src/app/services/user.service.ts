@@ -27,8 +27,20 @@ export class UserService {
     console.log("inside user service")
   }
 
+  registerUser(user: User): void {
+    this.setUserData(user).subscribe({
+      next: (response: void) => {
+        console.log("user registered successfully")
+      }, 
+      error: (error: Error) => {
+        console.log("error: " + JSON.stringify(error))
+      }
+    })
+  }
+
   loginUser(loginUser: LoginUser): void {
     console.log("UserService -> loginUser")
+    console.log("loginUser: ", loginUser)
     this.getUserData(loginUser).subscribe({
       next: (response: User) => {
         console.log(response)
@@ -56,9 +68,35 @@ export class UserService {
     })
   }
 
+  // getUserData(loginUser: LoginUser): Observable<User> {
+  //   console.log("loginuser: ", loginUser)
+  //   return this.http.post<User>(`${this.url}`, {
+  //     name: "Akash",
+  //     phone: "8478372817",
+  //     email: "akash@gmail.com",
+  //     address: "Hyderabad",
+  //     loginName: "akash",
+  //     password: "Akash@123",
+  //     role: "Donor",
+  //     panNumber: "HFDUI7362Q"
+  //   });
+  // }
+
   getUserData(loginUser: LoginUser): Observable<User> {
-    console.log("loginuser: ", loginUser)
-    return this.http.post<User>(`${this.url}/login`, loginUser );
+    return this.http.post<User>(`${this.url}/login`, loginUser)
+  }
+  setUserData(user: User): Observable<void> {
+    console.log("registered user: ", user) 
+    return this.http.post<void>(`${this.url}`, {
+      name: user.name,
+      phone: user.phone,
+      email: user.email,
+      address: user.address,
+      loginName: user.loginName,
+      password: user.password,
+      role: user.role,
+      panNumber: user.panNumber
+    });
   }
 
   getUser(): User {
@@ -66,4 +104,5 @@ export class UserService {
     console.log(this.user)
     return this.user();
   }
+
 }

@@ -29,7 +29,7 @@ export class LoginComponent {
     console.log("inside handle login")
     if(form.valid) {
       this.userService.loginUser(this.loginUser)
-      this.router.navigate(['/']);
+      this.router.navigate(['/userDashboard']);
     }
   }
 
